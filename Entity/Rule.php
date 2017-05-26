@@ -130,23 +130,16 @@ class Rule
     {
         $language = new ExpressionLanguage();
 
-        try {
-            foreach (json_decode($this->getConditions(), true) as $condition) {
-                if (!$language->evaluate(
-                    $condition,
-                    array(
-                        'data' => $data
-                    )
+        foreach (json_decode($this->getConditions(), true) as $condition) {
+            if (!$language->evaluate(
+                $condition,
+                array(
+                    'data' => $data
                 )
-                ) {
-                    return false;
-                }
+            )
+            ) {
+                return false;
             }
-        }
-        catch (\Exception $e) {
-            var_dump($e->getMessage());
-            var_dump($this);
-            die();
         }
 
         return $this->getActions();
