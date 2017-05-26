@@ -1,0 +1,16 @@
+{
+    "name": "vouchedfor/rules-bundle",
+    "description": "Rules engine for Symfony 2/3",
+    "type": "symfony-bundle",
+    "homepage": "https://github.com/vouchedfor/RulesBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan Stidwill"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "VouchedFor\\RulesBundle\\": "" }
+    }
+}
+

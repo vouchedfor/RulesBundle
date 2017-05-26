@@ -1,0 +1,3 @@
+vouched_for_rules_homepage:
+    path:     /
+    defaults: { _controller: VouchedForRulesBundle:Default:index }
