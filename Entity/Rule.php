@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Rule
  *
- * @ORM\Table(name="rule", uniqueConstraints={@ORM\UniqueConstraint(name="event_actions_UNIQUE", columns={"event","actions"})})
+ * @ORM\Table(name="rule", indexes={@ORM\Index(name="rule_event_index", columns={"event"})})
  * @ORM\Entity
  */
 class Rule
