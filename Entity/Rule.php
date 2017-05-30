@@ -4,6 +4,7 @@ namespace VouchedFor\RulesBundle\Entity;
 
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Doctrine\ORM\Mapping as ORM;
+use VouchedFor\RulesBundle\Validator\Constraints as Assert;
 
 /**
  * Rule
@@ -40,6 +41,7 @@ class Rule
      * @var string
      *
      * @ORM\Column(name="conditions", type="text", nullable=false)
+     * @Assert\Json
      */
     protected $conditions;
 
@@ -47,6 +49,7 @@ class Rule
      * @var string
      *
      * @ORM\Column(name="actions", type="string", length=255, nullable=false)
+     * @Assert\Json
      */
     private $actions;
 
@@ -107,6 +110,21 @@ class Rule
     }
 
     /**
+     * @return mixed
+     * @throws \Exception
+     */
+    private function getConditionsArray()
+    {
+        $conditionsArray = json_decode($this->conditions, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new \Exception('Conditions are not in json format');
+        }
+
+        return $conditionsArray;
+    }
+
+    /**
      * @return string
      */
     public function getActions()
@@ -130,7 +148,7 @@ class Rule
     {
         $language = new ExpressionLanguage();
 
-        foreach (json_decode($this->getConditions(), true) as $condition) {
+        foreach ($this->getConditionsArray() as $condition) {
             if (!$language->evaluate(
                 $condition,
                 array(

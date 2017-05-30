@@ -22,7 +22,8 @@ abstract class RuleEvent extends Event
     }
 
     /**
-     * @param mixed $action
+     * @param $action
+     * @throws \Exception
      */
     public function setAction($action)
     {
@@ -36,6 +37,8 @@ abstract class RuleEvent extends Event
                 $this->action = $actionArray[0];
                 $this->actionParameter = $actionArray[1];
                 break;
+            default:
+                throw new \Exception('Action is not in a valid format');
         }
     }
 

@@ -1,6 +1,6 @@
 {
     "name": "vouchedfor/rules-bundle",
-    "description": "Rules engine for Symfony 2/3",
+    "description": "Rules engine for Symfony",
     "type": "symfony-bundle",
     "homepage": "https://github.com/vouchedfor/RulesBundle",
     "license": "MIT",
@@ -9,6 +9,15 @@
             "name": "Jonathan Stidwill"
         }
     ],
+    "require": {
+        "symfony/framework-bundle": "~2.8 || ~3.0",
+        "symfony/expression-language": "~2.8|~3.0",
+        "symfony/validator": "~2.8|~3.0",
+        "doctrine/orm": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5"
+    },
     "autoload": {
         "psr-4": { "VouchedFor\\RulesBundle\\": "" }
     }
