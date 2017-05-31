@@ -75,8 +75,8 @@ Add a listener/subscriber to listen to the dispatched actions when a rule passes
         public function userMarkAsRequired(UserEvent $event)
         {
             $entity = $event->getEntity());
-            $entity->setStatus('retired');
-    
+               $entity->setStatus('retired');
+            
             ...
         }
         
@@ -86,7 +86,7 @@ Add a listener/subscriber to listen to the dispatched actions when a rule passes
             $parameter = $event->getActionParameter());
             
             $this->sendMail($entity, $parameter);  // Send email to $entity with template $parameter
-    
+            
             ...
         }
 
