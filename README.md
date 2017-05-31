@@ -39,10 +39,9 @@ Using Doctrine Schema:
     php app/console doctrine:schema:update --force
     
 ## Usage
-1. Create a class that extends VouchedFor\RulesBundle\Event\RuleEvent.
+Create a class that extends VouchedFor\RulesBundle\Event\RuleEvent.
 
-2. Add the events you want to listen to as tags for a RuleListener service (in this example, 'user:mark-as-retired' and 'user:send-email'):
-
+Add the events you want to listen to as tags for a RuleListener service (in this example, 'user:mark-as-retired' and 'user:send-email'):
 
     // app/config/services.yml
     app.rule.listener:
@@ -56,8 +55,7 @@ Using Doctrine Schema:
 
 
 
-3. Add a listener/subscriber to listen to the dispatched actions when a rule passes. For example:
-
+Add a listener/subscriber to listen to the dispatched actions when a rule passes. For example:
 
     <?php
     namespace AppBundle\EventListener;
