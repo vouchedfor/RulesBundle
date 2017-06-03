@@ -50,8 +50,8 @@ Add the events you want to listen to as tags for a RuleListener service (in this
           - "@doctrine.orm.entity_manager"
           - "@event_dispatcher"
         tags:
-          - { name: kernel.event_listener, event: user:mark-as-retired, method: handleEvent }
-          - { name: kernel.event_listener, event: user:send-email, method: handleEvent }
+          - { name: kernel.event_listener, event: user:registered, method: handleEvent }
+          - { name: kernel.event_listener, event: user:updated, method: handleEvent }
 
 
 
