@@ -10,7 +10,6 @@ abstract class RuleEvent extends Event
     private $actionParameter;
 
     abstract public function getData();
-    abstract public function getEntity();
     abstract public function getName();
 
     /**
