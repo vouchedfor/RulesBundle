@@ -2,8 +2,8 @@
 
 namespace VouchedFor\RulesBundle\EventListener;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Doctrine\ORM\EntityManager;
 use VouchedFor\RulesBundle\Entity\Rule;
 use VouchedFor\RulesBundle\Event\RuleEvent;
 
@@ -12,7 +12,7 @@ class RuleListener
     private $em;
     private $dispatcher;
 
-    public function __construct(EntityManager $em, EventDispatcherInterface $dispatcher)
+    public function __construct(EntityManagerInterface $em, EventDispatcherInterface $dispatcher)
     {
         $this->em = $em;
         $this->dispatcher = $dispatcher;
