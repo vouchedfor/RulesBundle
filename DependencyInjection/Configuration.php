@@ -17,8 +17,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('vouched_for_rules');
+        $treeBuilder = new TreeBuilder('vouched_for_rules');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
