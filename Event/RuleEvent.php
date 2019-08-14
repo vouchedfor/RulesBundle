@@ -2,7 +2,7 @@
 
 namespace VouchedFor\RulesBundle\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 abstract class RuleEvent extends Event
 {

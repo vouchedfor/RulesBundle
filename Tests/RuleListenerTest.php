@@ -59,7 +59,7 @@ class RuleListenerTest extends TestCase
 
         $dispatcher->expects($this->exactly(2))
             ->method('dispatch')
-            ->withConsecutive(['email:new-user'], ['user-status:pending']);
+            ->withConsecutive([$ruleEvent, 'email:new-user'], [$ruleEvent, 'user-status:pending']);
 
         $ruleListener = new RuleListener($em, $dispatcher);
         $ruleListener->handleEvent($ruleEvent);

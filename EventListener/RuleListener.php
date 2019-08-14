@@ -54,6 +54,6 @@ class RuleListener
 
     private function dispatchActionEvent(RuleEvent $event)
     {
-        $this->dispatcher->dispatch($event->getAction(), $event);
+        $this->dispatcher->dispatch($event, $event->getAction());
     }
 }
