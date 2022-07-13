@@ -47,6 +47,7 @@ class RuleListener
     private function dispatchActionEvents(Rule $rule, RuleEvent $event)
     {
         foreach (json_decode($rule->getActions(), true) as $action) {
+            $event->setRuleName($rule->getName());
             $event->setAction($action);
             $this->dispatchActionEvent($event);
         }
