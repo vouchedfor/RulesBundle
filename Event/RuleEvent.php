@@ -8,6 +8,7 @@ abstract class RuleEvent extends Event
 {
     private $action;
     private $actionParameter;
+    private $ruleName;
 
     abstract public function getData();
     abstract public function getName();
@@ -44,5 +45,15 @@ abstract class RuleEvent extends Event
     public function getActionParameter()
     {
         return $this->actionParameter;
+    }
+        
+    public function getRuleName()
+    {
+        return $this->ruleName;
+    }
+    
+    public function setRuleName($ruleName): void
+    {
+        $this->ruleName = $ruleName;
     }
 }
