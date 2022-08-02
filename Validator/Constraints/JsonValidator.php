@@ -16,6 +16,7 @@ class JsonValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
+        $value = (string) $value;
         $jsonArray = json_decode($value, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {

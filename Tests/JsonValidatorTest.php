@@ -9,7 +9,7 @@ use VouchedFor\RulesBundle\Validator\Constraints\JsonValidator;
 
 class JsonValidatorTest extends ConstraintValidatorTestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->group = 'MyGroup';
         $this->metadata = null;
@@ -39,7 +39,7 @@ class JsonValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate($value, new Json());
 
         $this->buildViolation('This value is not a valid Json array.')
-            ->setParameter('{{ string }}', $value)
+            ->setParameter('{{ string }}', (string) $value)
             ->assertRaised();
     }
 
