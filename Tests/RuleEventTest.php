@@ -3,6 +3,7 @@
 namespace VouchedFor\RulesBundle\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Exception;
 
 /**
  * Class RuleEventTest
@@ -33,16 +34,17 @@ class RuleEventTest extends TestCase
         ];
     }
 
-    /**
-     * @expectedException        Exception
-     * @expectedExceptionMessage Action is not in a valid format
-     */
     public function testSetActionTooManyParameter()
     {
+        
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Action is not in a valid format');
+        
         $ruleEvent = $this
             ->getMockBuilder('VouchedFor\RulesBundle\Event\RuleEvent')
             ->getMockForAbstractClass();
 
         $ruleEvent->setAction('action|2|3');
+
     }
 }

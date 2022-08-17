@@ -4,6 +4,7 @@ namespace VouchedFor\RulesBundle\Tests;
 
 use PHPUnit\Framework\TestCase;
 use VouchedFor\RulesBundle\Entity\Rule;
+use Exception;
 
 /**
  * Class RuleTest
@@ -91,12 +92,11 @@ class RuleTest extends TestCase
         $this->assertFalse($rule->evaluate($data));
     }
 
-    /**
-     * @expectedException        Exception
-     * @expectedExceptionMessage Conditions are not in json format
-     */
     public function testInvalidCondition()
     {
+                
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Conditions are not in json format');
         $rule = new Rule();
         $rule->setConditions('Not valid json');
 
