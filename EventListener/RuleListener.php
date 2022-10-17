@@ -41,7 +41,7 @@ class RuleListener
 
     private function findRulesByEvent($eventName)
     {
-        return $this->em->getRepository('VouchedForRulesBundle:Rule')->findBy(['event' => $eventName]);
+        return $this->em->getRepository(Rule::class)->findBy(['event' => $eventName]);
     }
 
     private function dispatchActionEvents(Rule $rule, RuleEvent $event)
