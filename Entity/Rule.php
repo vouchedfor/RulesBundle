@@ -54,6 +54,13 @@ class Rule
     private $actions;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="priority", type="integer", nullable=false, options={"default": 5})
+     */
+    private $priority = 5;
+
+    /**
      * @return int
      */
     public function getId()
@@ -138,6 +145,22 @@ class Rule
     public function setActions($actions)
     {
         $this->actions = $actions;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
     }
 
     /**
